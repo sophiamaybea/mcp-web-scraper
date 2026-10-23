@@ -1,0 +1,28 @@
+name: Validate bird-dog source registry
+
+on:
+  push:
+    paths:
+      - 'bird-dog-intelligence/**'
+      - '.github/workflows/bird-dog-validate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate manifest
+        run: python3 bird-dog-intelligence/run.py validate
+      - name: Run no-network unit tests
+        run: python3 -m unittest discover -s bird-dog-intelligence/tests -v
+      - name: Preview discovery jobs (does not scrape)
+        run: python3 bird-dog-intelligence/run.py plan --max-queries 12 > /tmp/bird-dog-plan.json

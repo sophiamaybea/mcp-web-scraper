@@ -50,3 +50,17 @@ python3 run.py scrape --url 'https://www.semibold.co.uk/referral-scheme/' --conf
 ## Deployment path
 
 Use this public GitHub directory for **configuration and provenance only**. Store private leads, consent status, researched reports and financial records in a private Supabase schema (RLS). For recurring jobs use Trigger.dev/Render/Coolify or controlled GitHub Actions with secrets. First test a small budget, track failures and avoid unnecessary refreshes. Avoid placing collected contact records in a publicly accessible GitHub file or workflow artefact.
+
+## Buyer discovery and closing prep
+
+The companion `registry/buyer_channels.json` documents official first-party programme routes and discovery-only directories. `docs/DEAL_PLAYBOOK.md` describes written terms, introduction consent and the commission/invoice process.
+
+```bash
+cd bird-dog-intelligence
+python3 buyer_pipeline.py channels
+python3 buyer_pipeline.py plan --limit 12
+python3 buyer_pipeline.py scan --limit 8 --geo gb
+python3 buyer_pipeline.py brief --buyer dispense_digital
+```
+
+A scan runs **Decodo web search only**. It does not automatically inspect agency contact pages, submit a programme registration, send outreach, secure partner agreements or generate paid commissions. Each candidate needs a confirmed first-party page and manual commercial approval.

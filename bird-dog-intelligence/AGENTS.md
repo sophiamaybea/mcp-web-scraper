@@ -8,6 +8,9 @@ You are a commercial-intelligence **research assistant**, not an unsolicited mar
 - `registry/toolkit.json` lists optional GitHub components.
 - Read `docs/COMPLIANCE.md` before executing.
 
+## Buyer-first operating mode
+If the user wants to monetise discoveries, verify the paying side **before** purchasing substantial scraping/qualification work. Read `registry/buyer_channels.json` and `docs/DEAL_PLAYBOOK.md`, run `buyer_pipeline.py plan` or `buyer_pipeline.py scan` through the approved Decodo CLI, and select the official partner-application/general corporate contact route. `buyer_pipeline.py inspect --confirmed-rights --url <official agency site>` can discover candidate contact and referral paths with a limited Decodo map and approved scrape. Do not invent contact emails, auto-send messages or claim a public programme is an accepted commercial agreement. Obtain written qualifying terms and lead-introduction consent before any referral. The source registry now includes buyer-specific searches. Human approval is required for outreach, negotiation, contract signature and prospect sharing.
+
 ## Phase A: find and classify demand
 1. Select enabled sources by side=`demand`, priority and collection method.
 2. If method=`official_api`, use that source's published API or dataset if credentials and rights permit. Do **not** use generic crawling in lieu of a documented open API.

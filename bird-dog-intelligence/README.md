@@ -12,6 +12,9 @@ This project lives within [sophiamaybea/mcp-web-scraper](https://github.com/soph
 |---|---|
 | [registry/sources.json](registry/sources.json) | **Machine-readable source inventory**: real source sites, official API documentation, discovery queries, priority, side of marketplace, collection method, permissions and cadence. |
 | [registry/buyers.json](registry/buyers.json) | Four example published referral schemes with links, terms, caveats and human-approval status. |
+| [registry/buyer_channels.json](registry/buyer_channels.json) | Where paying buyers can be discovered and their verified official referral/contact channels (four examples plus directory/search sources). |
+| [docs/DEAL_PLAYBOOK.md](docs/DEAL_PLAYBOOK.md) | Buyer-first outreach, qualification, partner attribution, lead registration and payment terms. |
+| [buyer_pipeline.py](buyer_pipeline.py) | Decodo buyer-side discovery scanner, verified official channel list and approval-only partnership brief generator. |
 | [registry/toolkit.json](registry/toolkit.json) | Verified GitHub repositories to assemble Decodo + scoring + workflows. |
 | [AGENTS.md](AGENTS.md) | Agent instructions: discover → verify → match → human review; provenance and compliance rules. |
 | [SKILL.md](SKILL.md) | Portable AI-agent skill: source discovery, Decodo actions, validation, buyer matching, Wolfram/OR-Tools ranking and human review. |
@@ -27,6 +30,21 @@ This project lives within [sophiamaybea/mcp-web-scraper](https://github.com/soph
 2. **Private-sector direct buying requests.** Use Decodo `search` with quotes, sectors and source domains to discover `RFP`, `RFQ`, `seeking agency`, `website redesign`, `AI automation consultant`. Use Decodo `scrape` only on a reviewed, publicly accessible original source.
 3. **Agency partners and referrers.** Use Decodo searches to discover referral and partnership programmes. Confirm the programme's terms and get agreement before making introductions.
 4. **Directories / job marketplaces.** Manual research only until specific access terms are reviewed. A job advert or an old-looking website is not proof that a business wants to purchase an external project.
+
+### Find buyers and prepare a commercial agreement
+
+The best first move is to obtain a **written buyer agreement**, not collect huge amounts of data before knowing whether anyone will pay. The new [deal playbook](docs/DEAL_PLAYBOOK.md) documents official agency contact routes, permission-based outreach and a referral agreement checklist.
+
+```bash
+cd bird-dog-intelligence
+python3 buyer_pipeline.py channels     # Official advertised routes, no scraping
+python3 buyer_pipeline.py plan --limit 15
+python3 buyer_pipeline.py scan --limit 8 --geo gb # Uses Decodo CLI + your key
+python3 buyer_pipeline.py brief --buyer synmek    # Draft only, does NOT send
+python3 buyer_pipeline.py checklist
+```
+
+The new registry adds three buyer-focused Decodo search categories to the main `sources.json` (currently 23 sources). All buyers discovered by search are **unverified candidates**; a published scheme does not establish consent, eligibility or a signed payment obligation.
 
 ### Quick commands (Python 3.10+; Node 22+ for Decodo CLI)
 

@@ -4,6 +4,8 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import json
+import re
+from urllib.parse import urlsplit
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -128,6 +130,62 @@ def live_scan(limit, max_results, geo):
     return summary
 
 
+def inspect_company_site(url, confirmed_rights, pages):
+    """Review only explicitly approved public first-party pages for agency contact paths."""
+    if not confirmed_rights:
+        raise ValueError("Explicit --confirmed-rights required after source access review")
+    import sys
+    sys.path.insert(0, str(HERE))
+    from run import decodo, safe_public_url, canonical
+    if not safe_public_url(url):
+        raise ValueError("A public HTTPS company-domain URL is required")
+    start = canonical(url)
+    host = (urlsplit(start).hostname or "").removeprefix("www.")
+    # A map is a list of URL candidates, not proof the site permits any further crawling.
+    mapped = decodo(["map", start, "--limit", "50"], timeout=120)
+    raw_links = re.findall(r"https?://[^\\s<>)\\]\\[\\\"']+", mapped)
+    raw_links.append(start)
+    urls = {}
+    keywords = ("referral", "partner", "affiliate", "contact", "collaborat", "business-development", "work-with-us", "introducer")
+    for found in raw_links:
+        found = found.rstrip(".,;:").split("#")[0]
+        if not safe_public_url(found):
+            continue
+        parsed = urlsplit(found)
+        if (parsed.hostname or "").removeprefix("www.") != host:
+            continue
+        if not any(token in parsed.path.lower() for token in keywords):
+            continue
+        urls[canonical(found)] = True
+    ranked = sorted(urls, key=lambda u: (not any(s in urlsplit(u).path.lower() for s in ("referral", "partner", "affiliate")), len(u)))
+    vetted = []
+    for candidate in ranked[:pages]:
+        try:
+            page = decodo(["scrape", candidate], timeout=120)
+            # Explicitly store only generic corporate inbox names, never named people's addresses.
+            possibles = re.findall(r"(?i)\\b([a-z0-9._%+\\-]+)@([a-z0-9.\\-]+\\.[a-z]{2,})\\b", page)
+            generic_aliases = {"info", "hello", "contact", "enquiries", "inquiries",
+                               "partnerships", "partners", "referrals", "sales", "team", "business"}
+            public_email = sorted({alias.lower()+"@"+domain.lower() for alias,domain in possibles
+                                   if alias.lower() in generic_aliases and
+                                   (domain.lower()==host or domain.lower().endswith("."+host))})
+            vetted.append({"official_page":candidate, "generic_business_email_candidates":public_email,
+                           "contact_route_status":"machine_extracted_requires_manual_verification",
+                           "partner_programme_status":"unknown_not_contractually_verified"})
+        except RuntimeError:
+            vetted.append({"official_page":candidate,"error":"Unable to fetch authorised page"})
+    report={"site":start,"root_domain":host,"checked_at_utc":now(),
+            "access_rights_confirmed_by_operator":True,
+            "routes_in_public_map":ranked[:20],"scraped_pages":vetted,
+            "automatic_outreach":False,
+            "note":"Machine-discovered paths and generic inboxes only. Read official pages manually before any approach."}
+    OUT.mkdir(parents=True,exist_ok=True)
+    from hashlib import sha256
+    filename="site-"+sha256(start.encode("utf-8")).hexdigest()[:16]+".json"
+    (OUT/filename).write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
+    return report
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     sub=p.add_subparsers(dest="action",required=True)
@@ -137,6 +195,9 @@ def main():
     sc.add_argument("--geo",choices=("gb","us","de","fr","ca","au"),default="gb")
     sc.add_argument("--max-results",type=int,default=10)
     b=sub.add_parser("brief");b.add_argument("--buyer",required=True)
+    ins=sub.add_parser("inspect");ins.add_argument("--url",required=True)
+    ins.add_argument("--confirmed-rights",action="store_true")
+    ins.add_argument("--pages",type=int,default=3)
     sub.add_parser("checklist")
     args=p.parse_args()
     if args.action=="channels": result=validated_routes()
@@ -147,6 +208,9 @@ def main():
         if not 1<=args.limit<=100:p.error("--limit 1..100")
         if not 1<=args.max_results<=100:p.error("--max-results 1..100")
         result=live_scan(args.limit,args.max_results,args.geo)
+    elif args.action=="inspect":
+        if not 1<=args.pages<=5:p.error("--pages 1..5")
+        result=inspect_company_site(args.url,args.confirmed_rights,args.pages)
     elif args.action=="brief":
         result=brief(args.buyer)
         OUT.mkdir(parents=True,exist_ok=True)

@@ -14,6 +14,7 @@ This project lives within [sophiamaybea/mcp-web-scraper](https://github.com/soph
 | [registry/buyers.json](registry/buyers.json) | Four example published referral schemes with links, terms, caveats and human-approval status. |
 | [registry/toolkit.json](registry/toolkit.json) | Verified GitHub repositories to assemble Decodo + scoring + workflows. |
 | [AGENTS.md](AGENTS.md) | Agent instructions: discover → verify → match → human review; provenance and compliance rules. |
+| [SKILL.md](SKILL.md) | Portable AI-agent skill: source discovery, Decodo actions, validation, buyer matching, Wolfram/OR-Tools ranking and human review. |
 | [docs/SOURCING_PLAYBOOK.md](docs/SOURCING_PLAYBOOK.md) | Specific places and filters to find tenders, RFPs, private buyers and referral programmes. |
 | [docs/DECODO_SETUP.md](docs/DECODO_SETUP.md) | Hosted MCP and CLI instructions, including connecting agents on an iPad/cloud environment. |
 | [docs/ECONOMICS.md](docs/ECONOMICS.md) | Wolfram-backed example model, referral EV and why research contracts should come first. |

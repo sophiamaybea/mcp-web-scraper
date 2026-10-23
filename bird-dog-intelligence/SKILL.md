@@ -151,6 +151,8 @@ python3 buyer_pipeline.py channels
 python3 buyer_pipeline.py plan --limit 15
 python3 buyer_pipeline.py scan --limit 8 --max-results 10 --geo gb
 python3 buyer_pipeline.py brief --buyer semibold
+# After source-site permission review, use Decodo map+scrape on one official agency domain:
+python3 buyer_pipeline.py inspect --url https://www.semibold.co.uk/ --confirmed-rights --pages 2
 python3 buyer_pipeline.py checklist
 ```
 

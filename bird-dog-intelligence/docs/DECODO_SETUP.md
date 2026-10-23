@@ -61,6 +61,8 @@ python3 buyer_pipeline.py channels
 python3 buyer_pipeline.py plan --limit 12
 python3 buyer_pipeline.py scan --limit 8 --geo gb
 python3 buyer_pipeline.py brief --buyer dispense_digital
+# This uses Decodo map then public-page scrapes only after site-specific access review:
+python3 buyer_pipeline.py inspect --url https://www.semibold.co.uk/ --confirmed-rights --pages 2
 ```
 
 A scan runs **Decodo web search only**. It does not automatically inspect agency contact pages, submit a programme registration, send outreach, secure partner agreements or generate paid commissions. Each candidate needs a confirmed first-party page and manual commercial approval.

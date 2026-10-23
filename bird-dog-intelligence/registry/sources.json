@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "last_curated": "2026-10-23",
-  "source_count": 20,
+  "source_count": 23,
   "description": "The origin URLs and queries Decodo or an official API connector should inspect. All source claims must be reverified at execution time.",
   "sources": [
     {
@@ -478,6 +478,95 @@
       "enabled": true,
       "last_source_reviewed": "2026-10-23",
       "automated_access": "manual_review_required"
+    },
+    {
+      "id": "buyer_independent_partner_programmes",
+      "label": "Web and software agencies explicitly paying partners",
+      "side": "buyer",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 1,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"website redesign\" \"refer a client\" \"commission\"",
+        "\"web design\" \"referral scheme\" \"contact\"",
+        "\"custom software\" \"partner referral\" commission",
+        "\"AI automation\" \"referral partner\" agency",
+        "\"digital agency\" \"introducer fee\""
+      ],
+      "cadence_hours": 168,
+      "notes": "Find programme pages FIRST, then official company contact/partner applications; public scheme is not evidence independently sourced introductions qualify.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "buyer_paid_lead_buyers",
+      "label": "Businesses advertising payment for B2B qualified leads / research",
+      "side": "buyer",
+      "verticals": [
+        "research",
+        "software",
+        "website",
+        "ai_automation"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 2,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"agency\" \"pay for qualified appointments\"",
+        "\"marketing agency\" \"pay per qualified lead\"",
+        "\"B2B\" \"we pay for referrals\" agency",
+        "\"lead generation\" \"paid pilot\" agency",
+        "\"outbound lead research\" \"paid trial\" B2B"
+      ],
+      "cadence_hours": 72,
+      "notes": "May return sellers and recruiters rather than actual buyers. Verify the end buyer and agreed acceptance criteria, and do not treat an advert as a contracted research order.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "buyer_official_contact_paths",
+      "label": "Discover official partnership and contact route URLs",
+      "side": "buyer",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 2,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"agency partnership\" \"partner with us\" web development",
+        "\"agency referrals\" \"partner programme\" contact",
+        "\"AI development\" agency \"partnerships\"",
+        "\"web design\" \"referral form\"",
+        "\"software agency\" \"partnership enquiry\""
+      ],
+      "cadence_hours": 168,
+      "notes": "Search only agency-owned pages for corporate contact methods, not names, personal emails, guessed contacts, or private data.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
     }
   ]
 }

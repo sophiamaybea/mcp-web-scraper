@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-10-23",
+  "description": "Buyer discovery channels and verified company-level routes. Directory is NOT proof of partner acceptance or permission to scrape. contact routes refer to publicly advertised programme channels. No individual personal data.",
+  "routes": [
+    {
+      "id": "semibold",
+      "label": "Semibold",
+      "kind": "published_referral_programme",
+      "programme_url": "https://www.semibold.co.uk/referral-scheme/",
+      "contact_url": "https://www.semibold.co.uk/referral-scheme/",
+      "method": "public_business_email_or_referral_form",
+      "general_business_email": "info@semibold.co.uk",
+      "suggested_first_action": "Send one enquiry to the published business address asking whether permission-based introductions from independently identified organisations are accepted; seek attribution approval before an introduction.",
+      "expected_terms": "Published 10% of eligible first website project fee; paid after completion and client invoice payment.",
+      "provenance": "https://www.semibold.co.uk/referral-scheme/",
+      "referral_eligibility": "unverified_for_independent_research",
+      "status": "published_programme_only"
+    },
+    {
+      "id": "synmek",
+      "label": "Synmek",
+      "kind": "published_referral_programme",
+      "programme_url": "https://synmek.com/referrals",
+      "contact_url": "https://synmek.com/referrals",
+      "method": "partner_registration_form",
+      "general_business_email": null,
+      "suggested_first_action": "Use the public partner registration form to obtain a referral code and verify whether this research-led sourcing model fits; obtain explicit confirmation before sharing prospects.",
+      "expected_terms": "Published 7%, 9%, 12% tiers, eligible first projects >=£2,000; published payout within 30 days of kickoff.",
+      "provenance": "https://synmek.com/referrals",
+      "referral_eligibility": "unverified_for_independent_research",
+      "status": "published_programme_only"
+    },
+    {
+      "id": "dispense_digital",
+      "label": "Dispense Digital",
+      "kind": "published_referral_programme",
+      "programme_url": "https://www.dispensedigital.co.uk/seo-web-design-affiliate-programme/",
+      "contact_url": "https://www.dispensedigital.co.uk/seo-web-design-affiliate-programme/",
+      "method": "public_business_email",
+      "general_business_email": "hello@dispensedigital.co.uk",
+      "suggested_email_subject": "Have I got news for you",
+      "suggested_first_action": "Ask whether independently sourced, consent-based introductions qualify: the website describes referrals by freelancers and other agencies with existing clients.",
+      "expected_terms": "Published 15% of qualifying monthly client revenue for lifetime of account.",
+      "provenance": "https://www.dispensedigital.co.uk/seo-web-design-affiliate-programme/",
+      "referral_eligibility": "unverified_for_independent_research",
+      "status": "published_programme_only"
+    },
+    {
+      "id": "circular_design",
+      "label": "Circular Design",
+      "kind": "published_referral_programme",
+      "programme_url": "https://circulardesign.io/referral-scheme/",
+      "contact_url": "https://tally.so/r/RGGvzd",
+      "alternate_contact_url": "https://circulardesign.io/referral-scheme/",
+      "method": "public_referrer_registration_form",
+      "general_business_email": null,
+      "suggested_first_action": "Use the referrer registration form linked from the official page; clarify whether independently researched nonprofits qualify and when consent is required.",
+      "expected_terms": "Published fixed £200 for eligible website projects; page describes payment within 30 days of signed contract and three-month protection window.",
+      "provenance": "https://circulardesign.io/referral-scheme/",
+      "referral_eligibility": "unverified_for_independent_research",
+      "status": "published_programme_only"
+    }
+  ],
+  "discovery_surfaces": [
+    {
+      "id": "google_b2b_partner_search",
+      "name": "Web search: openly published paid referral programmes",
+      "method": "decodo_search",
+      "permission": "Search results discovery only; verify agency-owned pages before copying content.",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"website redesign\" \"refer a client\" \"commission\"",
+        "\"web design\" \"referral scheme\" \"contact\"",
+        "\"custom software\" \"partner referral\" commission",
+        "\"AI automation\" \"referral partner\" agency",
+        "\"digital agency\" \"introducer fee\"",
+        "\"we pay for referrals\" \"web design\"",
+        "\"marketing agency\" \"pay per lead\" qualified",
+        "\"agency\" \"pay for qualified appointments\"",
+        "\"software agency\" \"referral programme\"",
+        "\"outbound lead research\" \"paid trial\" B2B"
+      ]
+    },
+    {
+      "id": "official_agency_contact_search",
+      "name": "Find official company contact/partner page, not scraped personal inboxes",
+      "method": "decodo_search",
+      "permission": "Search for first-party business channels only. Do not infer emails or search for employee contact exports.",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"agency partnership\" \"partner with us\" web development",
+        "\"agency referrals\" \"partner programme\" contact",
+        "\"AI development\" agency \"partnerships\"",
+        "\"web design\" \"referral form\"",
+        "\"lead research\" \"vendor application\" company"
+      ]
+    },
+    {
+      "id": "designrush_uk_agencies",
+      "name": "DesignRush UK web-design directory",
+      "method": "manual_review",
+      "url": "https://www.designrush.com/agency/website-design-development/uk",
+      "permission": "Use directory to identify possible agencies and manually inspect their first-party websites. No automated scraping of the directory without validated rights.",
+      "queries": []
+    },
+    {
+      "id": "designrush_uk_webdevelopment",
+      "name": "DesignRush UK web-development directory",
+      "method": "manual_review",
+      "url": "https://www.designrush.com/agency/web-development-companies/uk",
+      "permission": "Agency discovery/qualification only, not a commission programme.",
+      "queries": []
+    },
+    {
+      "id": "manifest_uk",
+      "name": "The Manifest UK web-development directory",
+      "method": "manual_review",
+      "url": "https://themanifest.com/web-development/companies/uk",
+      "permission": "Agency discovery/qualification only; site terms must be checked before crawling.",
+      "queries": []
+    },
+    {
+      "id": "goodfirms_uk",
+      "name": "GoodFirms UK web-development companies",
+      "method": "manual_review",
+      "url": "https://www.goodfirms.co/companies/web-development-agency/gb",
+      "permission": "Agency discovery/qualification only; no mass directory scraping without permission.",
+      "queries": []
+    },
+    {
+      "id": "partnerstack_marketplace",
+      "name": "PartnerStack program marketplace",
+      "method": "manual_review",
+      "url": "https://market.partnerstack.com/",
+      "permission": "Use permitted public marketplace pages or your own authenticated partner account. Do not scrape protected account pages.",
+      "queries": []
+    },
+    {
+      "id": "upwork_lead_research",
+      "name": "Upwork paid B2B research job briefs",
+      "method": "manual_review",
+      "url": "https://www.upwork.com/freelance-jobs/lead-generation/",
+      "permission": "In-platform authorised search and negotiation only; jobs are contracts to research, not automatically agency referral partners.",
+      "queries": []
+    }
+  ]
+}

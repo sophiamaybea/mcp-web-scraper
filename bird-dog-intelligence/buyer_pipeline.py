@@ -143,7 +143,7 @@ def inspect_company_site(url, confirmed_rights, pages):
     host = (urlsplit(start).hostname or "").removeprefix("www.")
     # A map is a list of URL candidates, not proof the site permits any further crawling.
     mapped = decodo(["map", start, "--limit", "50"], timeout=120)
-    raw_links = re.findall(r"https?://[^\\s<>)\\]\\[\\\"']+", mapped)
+    raw_links = re.findall(r"https?://[^\s<>)\]\[\"']+", mapped)
     raw_links.append(start)
     urls = {}
     keywords = ("referral", "partner", "affiliate", "contact", "collaborat", "business-development", "work-with-us", "introducer")
@@ -163,7 +163,7 @@ def inspect_company_site(url, confirmed_rights, pages):
         try:
             page = decodo(["scrape", candidate], timeout=120)
             # Explicitly store only generic corporate inbox names, never named people's addresses.
-            possibles = re.findall(r"(?i)\\b([a-z0-9._%+\\-]+)@([a-z0-9.\\-]+\\.[a-z]{2,})\\b", page)
+            possibles = re.findall(r"(?i)\b([a-z0-9._%+\-]+)@([a-z0-9.\-]+\.[a-z]{2,})\b", page)
             generic_aliases = {"info", "hello", "contact", "enquiries", "inquiries",
                                "partnerships", "partners", "referrals", "sales", "team", "business"}
             public_email = sorted({alias.lower()+"@"+domain.lower() for alias,domain in possibles
@@ -182,7 +182,7 @@ def inspect_company_site(url, confirmed_rights, pages):
     OUT.mkdir(parents=True,exist_ok=True)
     from hashlib import sha256
     filename="site-"+sha256(start.encode("utf-8")).hexdigest()[:16]+".json"
-    (OUT/filename).write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
+    (OUT/filename).write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     return report
 
 

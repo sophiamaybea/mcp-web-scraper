@@ -136,6 +136,32 @@ python3 run.py scrape --url 'https://www.semibold.co.uk/referral-scheme/' --conf
 
 `plan` and `validate` need no API key. `scan` writes `output/candidates.jsonl`, `output/candidates.csv`, `output/errors.jsonl` and `output/summary.json`. These are **unverified search candidates**, not collected RFP contracts or commission agreements. Do not claim the scanner is running continuously or that an API integration is active unless actually configured and executed.
 
+## Find paying buyers and secure agreement FIRST
+
+For a request such as **"where can I find the actual buyers, contact them and secure a deal?"**, first read:
+
+- `registry/buyer_channels.json`: four official published referral-programme routes plus verified directories/partner marketplaces. It distinguishes a real advertised contact channel from a signed buyer.
+- `docs/DEAL_PLAYBOOK.md`: buyer-first research funnel, scripts, ten qualification questions, payment/attribution terms, written pilot agreement checklist and commercial milestones.
+- `buyer_pipeline.py`: builds the buyer search plan, executes actual Decodo CLI **buyer-side search** (candidate discovery), lists four official channels, and generates human-review-only partnership enquiry briefs.
+
+Execute a **buyer-first** discovery batch:
+
+```bash
+python3 buyer_pipeline.py channels
+python3 buyer_pipeline.py plan --limit 15
+python3 buyer_pipeline.py scan --limit 8 --max-results 10 --geo gb
+python3 buyer_pipeline.py brief --buyer semibold
+python3 buyer_pipeline.py checklist
+```
+
+Live `scan` consumes Decodo requests with valid CLI credentials and writes unverified discovery records into ignored `output/buyer_research/`; it never contacts anyone. This is separate from `run.py scan --side buyer`, which uses buyer sources in the main source registry.
+
+**Evidence threshold for buyer monetisation:** partner-owned referral page **AND** a method to register attribution **AND** confirmation of acceptance of independent prospect research **AND** required customer consent **AND** agreed terms. None of the 4 example programmes is represented as contractually onboarded.
+
+**Contact-route priority:** official partner application > official partnership form > published generic company-level business email > authorised marketplace portal. Never invent or guess emails, bulk collect employee details, or send outreach automatically.
+
+**Closing steps:** approach the partner before disclosing prospect identity; offer specific pilot deliverable; negotiate accepted-lead definition, exclusion/duplicate accounts, registration mechanism, commission/flat research fee, invoicing trigger, payment timing, clawback and attribution duration; document human approval and only introduce a prospect after appropriate permission. See the sample commercial schedule in `docs/DEAL_PLAYBOOK.md`.
+
 ## Agent workflow (execute IN ORDER)
 
 **1. Read and plan.** Load `registry/sources.json` and `docs/COMPLIANCE.md`. Filter `enabled: true`, relevant country/service, allowed method and priority. Propose a capped budget of calls, elapsed time and monetary costs. Never exceed it silently.

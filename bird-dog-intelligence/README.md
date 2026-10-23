@@ -41,6 +41,8 @@ python3 buyer_pipeline.py channels     # Official advertised routes, no scraping
 python3 buyer_pipeline.py plan --limit 15
 python3 buyer_pipeline.py scan --limit 8 --geo gb # Uses Decodo CLI + your key
 python3 buyer_pipeline.py brief --buyer synmek    # Draft only, does NOT send
+# When permitted, inspect a specific company's own public site for contact routes:
+python3 buyer_pipeline.py inspect --url https://www.semibold.co.uk/ --confirmed-rights --pages 2
 python3 buyer_pipeline.py checklist
 ```
 

@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "last_curated": "2026-10-23",
+  "source_count": 20,
+  "description": "The origin URLs and queries Decodo or an official API connector should inspect. All source claims must be reverified at execution time.",
+  "sources": [
+    {
+      "id": "uk_contracts_finder",
+      "label": "UK Contracts Finder (OCDS)",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "GB"
+      ],
+      "priority": 1,
+      "method": "official_api",
+      "url": "https://www.contractsfinder.service.gov.uk/contractfinder",
+      "api_docs": "https://www.contractsfinder.service.gov.uk/apidocumentation",
+      "api_reference": "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search",
+      "queries": [],
+      "cadence_hours": 24,
+      "notes": "Official OCDS search with publication dates, stage and cursor; prefer source API. Filter current tender stage, procurement eligibility, deadline and CPV. Public tenders are research-only unless permitted.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "official_api_preferred"
+    },
+    {
+      "id": "uk_find_tender",
+      "label": "UK Find a Tender",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "GB"
+      ],
+      "priority": 1,
+      "method": "official_api",
+      "url": "https://www.find-tender.service.gov.uk/",
+      "api_docs": "https://www.find-tender.service.gov.uk/Developer/Documentation",
+      "queries": [],
+      "cadence_hours": 24,
+      "notes": "Official OCDS release/record JSON. Check notice type, status and bid deadlines. No automatic referral entitlement.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "official_api_preferred"
+    },
+    {
+      "id": "eu_ted",
+      "label": "EU TED procurement Search API",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "EU"
+      ],
+      "priority": 1,
+      "method": "official_api",
+      "url": "https://ted.europa.eu/",
+      "api_docs": "https://docs.ted.europa.eu/api/latest/search.html",
+      "queries": [],
+      "cadence_hours": 24,
+      "notes": "Prefer published anonymous POST /v3/notices/search API to scraping CMS; filter services CPV, place, publication, deadline.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "official_api_preferred"
+    },
+    {
+      "id": "us_sam",
+      "label": "US SAM.gov Opportunities",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation"
+      ],
+      "geography": [
+        "US"
+      ],
+      "priority": 2,
+      "method": "official_api",
+      "url": "https://sam.gov/content/opportunities",
+      "api_docs": "https://open.gsa.gov/api/get-opportunities-public-api/",
+      "queries": [],
+      "cadence_hours": 24,
+      "notes": "Official /opportunities/v2/search API requires a SAM.gov key. Filter active listings and dates; check domestic supplier eligibility and restrictions.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "official_api_preferred"
+    },
+    {
+      "id": "nyc_procurement",
+      "label": "NYC procurement listings & open data",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "US-NY"
+      ],
+      "priority": 2,
+      "method": "official_api",
+      "url": "https://www.nyc.gov/site/mocs/resources/public-procurement-sites.page",
+      "api_docs": "https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx",
+      "queries": [],
+      "cadence_hours": 24,
+      "notes": "Use official NYC Open Data records, PASSPort procurement navigator and City Record. Some documents require registration; never automate account access.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "official_api_preferred"
+    },
+    {
+      "id": "uk_scotland",
+      "label": "Public Contracts Scotland",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "GB-SCT"
+      ],
+      "priority": 4,
+      "method": "manual_review",
+      "url": "https://www.publiccontractsscotland.gov.uk/",
+      "queries": [],
+      "cadence_hours": 72,
+      "notes": "Official portal; evaluate portal usage/licence and supported exports before any automated collection.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "uk_wales",
+      "label": "Sell2Wales",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "GB-WLS"
+      ],
+      "priority": 4,
+      "method": "manual_review",
+      "url": "https://www.sell2wales.gov.wales/",
+      "queries": [],
+      "cadence_hours": 72,
+      "notes": "Official portal; manual source validation before building an API or browser adapter.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "uk_ni",
+      "label": "eTendersNI",
+      "side": "demand",
+      "verticals": [
+        "website",
+        "software",
+        "ai_automation",
+        "marketing"
+      ],
+      "geography": [
+        "GB-NIR"
+      ],
+      "priority": 4,
+      "method": "manual_review",
+      "url": "https://etendersni.gov.uk/",
+      "queries": [],
+      "cadence_hours": 72,
+      "notes": "Portal requires terms review and possibly registration; do not automate access to protected content.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "private_website_rfps",
+      "label": "Publicly indexed private and nonprofit website RFPs",
+      "side": "demand",
+      "verticals": [
+        "website"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 1,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"website redesign\" \"request for proposals\" deadline",
+        "\"website development\" \"request for proposal\" budget",
+        "site:.org \"website redesign\" \"RFP\"",
+        "\"seeking web development agency\" project",
+        "\"WordPress migration\" \"request for proposal\""
+      ],
+      "cadence_hours": 24,
+      "notes": "Verify the original issuer and deadlines. Prefer organisation-published requests over reposts. Search does not equal scrape permission.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "private_ai_rfps",
+      "label": "AI automation & integration buying requests",
+      "side": "demand",
+      "verticals": [
+        "ai_automation"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 1,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"AI automation\" \"request for proposal\"",
+        "\"workflow automation\" \"seeking consultant\"",
+        "\"AI integration\" \"request for quotation\"",
+        "\"customer support automation\" \"RFP\"",
+        "\"process automation\" \"seeking agency\""
+      ],
+      "cadence_hours": 24,
+      "notes": "Verify funded procurement and problem statement. Recruiting one employee alone is weak evidence, not a service purchase.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "private_software_rfps",
+      "label": "Software and e-commerce development tenders",
+      "side": "demand",
+      "verticals": [
+        "software"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 2,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"software development\" \"request for proposal\" deadline",
+        "\"mobile app development\" \"RFP\"",
+        "\"ecommerce development\" \"request for quotation\"",
+        "\"seeking software development partner\"",
+        "\"API integration\" \"request for proposals\""
+      ],
+      "cadence_hours": 24,
+      "notes": "Extract exact requirement; verify that the project is open and that the buyer can accept unsolicited external agency bids.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "private_marketing_rfps",
+      "label": "Public marketing and SEO requests",
+      "side": "demand",
+      "verticals": [
+        "marketing"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 3,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"SEO agency\" \"request for proposal\"",
+        "\"digital marketing\" \"seeking agency\" budget",
+        "\"marketing agency\" \"RFP\" deadline"
+      ],
+      "cadence_hours": 48,
+      "notes": "Only include directly published and dated buyer requirements; do not mislabel generic SEO complaints as open deals.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "buyer_referrals_website",
+      "label": "Web agency referral scheme discovery",
+      "side": "buyer",
+      "verticals": [
+        "website"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 1,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"web design\" \"referral scheme\" \"commission\"",
+        "\"website development\" \"referral programme\"",
+        "\"web design agency\" \"refer a client\" commission"
+      ],
+      "cadence_hours": 168,
+      "notes": "Confirm current terms on official agency website; ask if independent research-based referrals are eligible.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "buyer_referrals_ai",
+      "label": "AI agency partnership discovery",
+      "side": "buyer",
+      "verticals": [
+        "ai_automation",
+        "software"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 2,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"AI automation agency\" \"referral partners\"",
+        "\"software development\" \"partner programme\" commission",
+        "\"custom software\" \"referral partner\""
+      ],
+      "cadence_hours": 168,
+      "notes": "Do not record a negotiated commission without express agreement from the programme owner.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "buyer_referrals_marketing",
+      "label": "Marketing and SEO affiliate discovery",
+      "side": "buyer",
+      "verticals": [
+        "marketing"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 2,
+      "method": "decodo_search",
+      "url": "https://www.google.com/",
+      "queries": [
+        "\"digital marketing\" \"affiliate programme\" agency",
+        "\"SEO agency\" \"referral commission\"",
+        "\"marketing agency\" \"recurring referral\""
+      ],
+      "cadence_hours": 168,
+      "notes": "Verify the scheme, qualified-account definition, payment period and actual acceptance.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "discovery_search_only"
+    },
+    {
+      "id": "marketplace_upwork",
+      "label": "Upwork paid lead research briefs",
+      "side": "buyer",
+      "verticals": [
+        "research"
+      ],
+      "geography": [
+        "GB",
+        "US"
+      ],
+      "priority": 3,
+      "method": "manual_review",
+      "url": "https://www.upwork.com/freelance-jobs/lead-generation/",
+      "queries": [],
+      "cadence_hours": 72,
+      "notes": "Use in-platform search/authorised access; DO NOT automate scraping if prohibited or move client communications off-platform. Contract first, then research.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "partner_page_semibold",
+      "label": "Semibold referral terms",
+      "side": "buyer",
+      "verticals": [
+        "website"
+      ],
+      "geography": [
+        "GB"
+      ],
+      "priority": 1,
+      "method": "known_public_page",
+      "url": "https://www.semibold.co.uk/referral-scheme/",
+      "queries": [],
+      "cadence_hours": 168,
+      "notes": "Published terms: first new website project, payment after project completion/invoices paid. Not evidence that cold researched introductions qualify.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "partner_page_synmek",
+      "label": "Synmek referrals",
+      "side": "buyer",
+      "verticals": [
+        "website",
+        "software",
+        "marketing"
+      ],
+      "geography": [
+        "GB"
+      ],
+      "priority": 1,
+      "method": "known_public_page",
+      "url": "https://synmek.com/referrals",
+      "queries": [],
+      "cadence_hours": 168,
+      "notes": "Published tiers 7%/9%/12%, first engagement and minimum project size. Must register/verify partner status.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "partner_page_dispense",
+      "label": "Dispense Digital affiliate programme",
+      "side": "buyer",
+      "verticals": [
+        "marketing"
+      ],
+      "geography": [
+        "GB"
+      ],
+      "priority": 1,
+      "method": "known_public_page",
+      "url": "https://www.dispensedigital.co.uk/seo-web-design-affiliate-programme/",
+      "queries": [],
+      "cadence_hours": 168,
+      "notes": "Published recurring commission, seems aimed at freelancers/agencies with existing clients; don't assume a bulk-scraped lead qualifies.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    },
+    {
+      "id": "partner_page_circular",
+      "label": "Circular Design referral scheme",
+      "side": "buyer",
+      "verticals": [
+        "website"
+      ],
+      "geography": [
+        "GB",
+        "EU"
+      ],
+      "priority": 1,
+      "method": "known_public_page",
+      "url": "https://circulardesign.io/referral-scheme/",
+      "queries": [],
+      "cadence_hours": 168,
+      "notes": "Published fixed £200 for successful eligible charity/purpose-driven website projects; verify written terms and lead permission.",
+      "enabled": true,
+      "last_source_reviewed": "2026-10-23",
+      "automated_access": "manual_review_required"
+    }
+  ]
+}

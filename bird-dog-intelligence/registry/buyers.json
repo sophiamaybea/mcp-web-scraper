@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "note": "Published referral offers, not individually negotiated/contracted buyers. Do not sell or introduce personal leads based on this file alone.",
+  "buyers": [
+    {
+      "id": "semibold",
+      "company": "Semibold",
+      "url": "https://www.semibold.co.uk/referral-scheme/",
+      "verticals": [
+        "website"
+      ],
+      "published_reward": {
+        "kind": "percentage",
+        "rate": 0.1,
+        "base": "First website design project fee excluding VAT and third-party costs"
+      },
+      "payment_trigger": "Client completes project and pays invoices in full; ordinarily within 14 days thereafter.",
+      "published_conditions": [
+        "New client not already in conversation",
+        "Introduction recorded before initial contact or explicitly attributed",
+        "Website build/redesign only"
+      ],
+      "partner_status": "published_only",
+      "independent_prospect_eligibility": "unconfirmed",
+      "last_checked": "2026-10-23"
+    },
+    {
+      "id": "synmek",
+      "company": "Synmek",
+      "url": "https://synmek.com/referrals",
+      "verticals": [
+        "website",
+        "software",
+        "marketing"
+      ],
+      "published_reward": {
+        "kind": "tiered_percentage",
+        "rates": [
+          0.07,
+          0.09,
+          0.12
+        ],
+        "base": "Eligible first project >= GBP 2000"
+      },
+      "payment_trigger": "Published terms say within 30 days of project kickoff.",
+      "published_conditions": [
+        "New client first engagement",
+        "Referral code and tier required",
+        "Specific retention terms may vary"
+      ],
+      "partner_status": "published_only",
+      "independent_prospect_eligibility": "unconfirmed",
+      "last_checked": "2026-10-23"
+    },
+    {
+      "id": "dispense_digital",
+      "company": "Dispense Digital",
+      "url": "https://www.dispensedigital.co.uk/seo-web-design-affiliate-programme/",
+      "verticals": [
+        "marketing"
+      ],
+      "published_reward": {
+        "kind": "recurring_percentage",
+        "rate": 0.15,
+        "base": "Qualifying client monthly revenue while account continues"
+      },
+      "payment_trigger": "As qualifying customer revenue is received; refer to current agreement.",
+      "published_conditions": [
+        "Programme appears targeted at freelancers/agencies with clients",
+        "Discuss acceptance criteria directly"
+      ],
+      "partner_status": "published_only",
+      "independent_prospect_eligibility": "unconfirmed",
+      "last_checked": "2026-10-23"
+    },
+    {
+      "id": "circular_design",
+      "company": "Circular Design",
+      "url": "https://circulardesign.io/referral-scheme/",
+      "verticals": [
+        "website"
+      ],
+      "published_reward": {
+        "kind": "fixed",
+        "amount": 200,
+        "currency": "GBP",
+        "base": "Eligible signed website design project"
+      },
+      "payment_trigger": "Published terms say within 30 days of signed contract.",
+      "published_conditions": [
+        "Register as referrer",
+        "Charity/nonprofit/social enterprise or purpose-led buyer fit",
+        "Web design only"
+      ],
+      "partner_status": "published_only",
+      "independent_prospect_eligibility": "unconfirmed",
+      "last_checked": "2026-10-23"
+    }
+  ]
+}

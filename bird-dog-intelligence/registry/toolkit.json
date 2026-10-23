@@ -1,0 +1,114 @@
+{
+  "as_of": "2026-10-23",
+  "note": "Repository links checked; licence labels are indicative and must be rechecked for individual deployed components.",
+  "repositories": [
+    {
+      "repository": "Decodo/mcp-server",
+      "url": "https://github.com/Decodo/mcp-server",
+      "role": "Hosted/local MCP tools for search, scrape, map and crawl",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "Decodo/agent-skills",
+      "url": "https://github.com/Decodo/agent-skills",
+      "role": "Official instructions for routing scraping agent calls",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "Decodo/cli",
+      "url": "https://github.com/Decodo/cli",
+      "role": "Command-line Decodo search and scrape used by run.py",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "Decodo/decodo-openclaw-skill",
+      "url": "https://github.com/Decodo/decodo-openclaw-skill",
+      "role": "OpenClaw integration reference",
+      "license_check": "CHECK"
+    },
+    {
+      "repository": "Decodo/web-scraping-api",
+      "url": "https://github.com/Decodo/web-scraping-api",
+      "role": "Existing REST scraping examples",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "unclecode/crawl4ai",
+      "url": "https://github.com/unclecode/crawl4ai",
+      "role": "Alternative LLM-ready site crawler; self-hosted",
+      "license_check": "Apache-2.0"
+    },
+    {
+      "repository": "scrapy/scrapy",
+      "url": "https://github.com/scrapy/scrapy",
+      "role": "Structured Python web harvesting",
+      "license_check": "BSD-3-Clause"
+    },
+    {
+      "repository": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "role": "Alternative web content API, evaluate AGPL obligations",
+      "license_check": "AGPL-3.0"
+    },
+    {
+      "repository": "rapidfuzz/RapidFuzz",
+      "url": "https://github.com/rapidfuzz/RapidFuzz",
+      "role": "String comparison for candidate deduplication",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "dedupeio/dedupe",
+      "url": "https://github.com/dedupeio/dedupe",
+      "role": "Entity resolution and record matching",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "google/or-tools",
+      "url": "https://github.com/google/or-tools",
+      "role": "Assignment optimisation and matching under capacity constraints",
+      "license_check": "Apache-2.0"
+    },
+    {
+      "repository": "open-contracting/standard",
+      "url": "https://github.com/open-contracting/standard",
+      "role": "Open Contracting Data Standard documentation",
+      "license_check": "CHECK"
+    },
+    {
+      "repository": "open-contracting/kingfisher-collect",
+      "url": "https://github.com/open-contracting/kingfisher-collect",
+      "role": "Download and collect OCDS datasets",
+      "license_check": "BSD-3-Clause"
+    },
+    {
+      "repository": "triggerdotdev/trigger.dev",
+      "url": "https://github.com/triggerdotdev/trigger.dev",
+      "role": "Durable jobs and optional scheduling",
+      "license_check": "Apache-2.0"
+    },
+    {
+      "repository": "langchain-ai/langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "role": "Agent workflow orchestration with checkpoints",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "pgvector/pgvector",
+      "url": "https://github.com/pgvector/pgvector",
+      "role": "Vector retrieval / similarity in PostgreSQL",
+      "license_check": "CHECK"
+    },
+    {
+      "repository": "567-labs/instructor",
+      "url": "https://github.com/567-labs/instructor",
+      "role": "Structured, validated LLM extraction",
+      "license_check": "MIT"
+    },
+    {
+      "repository": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase",
+      "role": "Private database and role-scoped lead storage",
+      "license_check": "Apache-2.0"
+    }
+  ]
+}
